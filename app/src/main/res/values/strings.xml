@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Second</string>
+    <string name="string1">祝你生日快乐</string>
+    <string name="string2">Happy Birthday</string>
+    <string name="button" translatable="false">click me</string>
+
+</resources>
