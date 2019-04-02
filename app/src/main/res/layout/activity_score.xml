@@ -4,12 +4,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="40dp">
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="match_parent"
@@ -35,7 +40,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="4dp"
-                android:onClick="onClick"
+                android:onClick="btn3"
                 android:text="@string/threePoint" />
 
             <Button
@@ -45,7 +50,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="4dp"
-                android:onClick="onClick"
+                android:onClick="btn2"
                 android:text="@string/twoPoint" />
 
             <Button
@@ -55,10 +60,65 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="12dp"
                 android:layout_marginVertical="4dp"
-                android:onClick="onClick"
+                android:onClick="btn1"
                 android:text="@string/onePoint" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Team B"
+                android:textSize="28sp"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:id="@+id/tvScoreB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textSize="45sp"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/btnTeamB3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="4dp"
+                android:onClick="btn3"
+                android:text="@string/threePoint" />
+
+            <Button
+                android:id="@+id/btnTeamB2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="4dp"
+                android:onClick="btn2"
+                android:text="@string/twoPoint" />
+
+            <Button
+                android:id="@+id/btnTeamB1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginVertical="4dp"
+                android:onClick="btn1"
+                android:text="@string/onePoint" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnReset"
@@ -66,7 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:onClick="onClick"
+        android:onClick="reset"
         android:text="Reset" />
 
 
