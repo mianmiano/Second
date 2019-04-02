@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 imageView1.setImageDrawable(getResources().getDrawable(R.drawable.birthday2));
 
-
             }
         });
     }

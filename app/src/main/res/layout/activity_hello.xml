@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/etCelcius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/input"
+        android:inputType="number|numberDecimal" />
+
+    <Button
+        android:id="@+id/btnCalculateTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnTemp"/>
+
+    <TextView
+        android:id="@+id/tvFahrenheit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/stringTemp"/>
+
+</LinearLayout>

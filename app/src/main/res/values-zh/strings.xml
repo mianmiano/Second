@@ -3,4 +3,6 @@
     <string name="app_name">Second</string>
     <string name="string1">你好</string>
     <string name="string2">生日快乐</string>
+    <string name="stringTemp">结果为：</string>
+    <string name="btnTemp">计算华氏度</string>
 </resources>
