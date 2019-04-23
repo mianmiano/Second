@@ -33,6 +33,11 @@
                 android:textSize="45sp"
                 android:textAlignment="center"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
             <Button
                 android:id="@+id/btnTeamA3"
                 android:layout_width="match_parent"

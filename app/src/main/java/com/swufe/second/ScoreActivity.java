@@ -24,6 +24,27 @@ public class ScoreActivity extends AppCompatActivity {
 
     }
 
+    //处理页面旋转时数据丢失问题
+    //存储数据
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String scoreA = ((TextView)findViewById(R.id.tvScoreA)).getText().toString();
+        String scoreB = ((TextView)findViewById(R.id.tvScoreB)).getText().toString();
+        outState.putString("teamA_score",scoreA);
+        outState.putString("teamB_score",scoreB);
+    }
+
+    //还原数据
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String scorea = savedInstanceState.getString("teamA_score");
+        String scoreb = savedInstanceState.getString("teamB_score");
+        ((TextView)findViewById(R.id.tvScoreA)).setText(scorea);
+        ((TextView)findViewById(R.id.tvScoreB)).setText(scoreb);
+    }
+
     public void btn1(View btn){
         if(btn.getId() == R.id.btnTeamA1){
             show(1);

@@ -14,13 +14,15 @@
         <activity android:name=".HelloActivity">
 
         </activity>
-        <activity android:name=".ScoreActivity"></activity>
-        <activity android:name=".RateActivity">
+        <activity android:name=".ScoreActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".RateActivity">
+
         </activity>
         <activity android:name=".ConfigActivity"></activity>
     </application>
