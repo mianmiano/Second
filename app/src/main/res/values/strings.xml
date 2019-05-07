@@ -83,5 +83,6 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="menu_set_label">Setting</string>
+    <string name="label_open_list">OpenList</string>
 
 </resources>
