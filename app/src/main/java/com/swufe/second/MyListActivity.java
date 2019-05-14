@@ -1,15 +1,20 @@
 package com.swufe.second;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -29,7 +34,7 @@ public class MyListActivity extends ListActivity implements Runnable,AdapterView
 
     Handler handler;
     ListView listView;
-    private ArrayList<HashMap<String,String>> listItems;
+    private List<HashMap<String,String>> listItems;
     private SimpleAdapter listItemAdapter;
 
     private String TAG = "MyListActivity";
@@ -52,8 +57,8 @@ public class MyListActivity extends ListActivity implements Runnable,AdapterView
             @Override
             public void handleMessage(Message msg) {
                 if (msg.what == 7) {
-                    List<HashMap<String,String>> list2 = (List<HashMap<String,String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(MyListActivity.this,list2,
+                    listItems = (List<HashMap<String,String>>) msg.obj;
+                    listItemAdapter = new SimpleAdapter(MyListActivity.this,listItems,
                             R.layout.list_item,
                             new String[]{"name","rate"},
                             new int[]{R.id.itemTitle,R.id.itemDetail});
@@ -64,7 +69,35 @@ public class MyListActivity extends ListActivity implements Runnable,AdapterView
         };
 
         //列表绑定监听器
+        //由于这个activity是继承的listactivity，所以需要通过getListView()获取listview对象
         getListView().setOnItemClickListener(this);
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int position, long l) {
+                Log.i(TAG, "onItemLongClick: 长按");
+//                //删除操作:删除数据再通知adapter
+//                listItems.remove(i);//注意listItems前后是否是同一个（handler返回数据之前是存在list2中
+//                listItemAdapter.notifyDataSetChanged();
+
+                //构造对话框进行确认操作
+                AlertDialog.Builder builder = new AlertDialog.Builder(MyListActivity.this);
+                Log.i(TAG, "onItemLongClick: builder="+builder);
+                builder.setTitle("提示").setMessage("请确认是否删除数据")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Log.i(TAG, "onClick: 对话框事件处理");
+                                listItems.remove(position);
+                                listItemAdapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("否",null);
+                builder.create().show();
+
+                //返回false表明短按事件依然生效，true则是短按事件被屏蔽
+                return true;
+            }
+        });
     }
 
     public void run(){
@@ -121,11 +154,52 @@ public class MyListActivity extends ListActivity implements Runnable,AdapterView
         Log.i(TAG, "onItemClick: name="+name);
         Log.i(TAG, "onItemClick: rate="+rate);
 
-        //打开新的页面，传入参数
-        Intent rateCal = new Intent(this,RateCalActivity.class);
-        rateCal.putExtra("name",name);
-        rateCal.putExtra("rate",Float.parseFloat(rate));
-        startActivity(rateCal);
+//        //打开新的页面，传入参数
+//        Intent rateCal = new Intent(this,RateCalActivity.class);
+//        rateCal.putExtra("name",name);
+//        rateCal.putExtra("rate",Float.parseFloat(rate));
+//        startActivity(rateCal);
 
+        customDialogClick(name,Float.parseFloat(rate));
+
+    }
+
+    private void customDialogClick(String name, final float rate) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MyListActivity.this);
+        Log.i(TAG, "onItemLongClick: builder="+builder);
+        AlertDialog dialog = builder.create();
+        View dialogView = View.inflate(this,R.layout.activity_rate_cal,null);
+        //设置对话框布局
+        dialog.setView(dialogView);
+        dialog.setTitle("汇率计算");
+        dialog.show();
+        TextView title = dialogView.findViewById(R.id.title2);
+        EditText etInput = dialogView.findViewById(R.id.etInput);
+        final TextView tvShowMoney = dialogView.findViewById(R.id.tvShowMoney2);
+
+        Log.i(TAG, "customDialogClick: title="+title);
+        Log.i(TAG, "customDialogClick: name = "+name);
+        title.setText(name);
+        etInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.length()>0){
+                    float val = Float.parseFloat(s.toString());
+                    tvShowMoney.setText(val + "RMB==>" + (100/rate*val));
+                }else{
+                    tvShowMoney.setText("");
+                }
+            }
+        });
     }
 }
