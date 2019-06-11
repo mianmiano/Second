@@ -97,4 +97,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="buou">布偶猫</string>
+    <string name="mianyin">缅因猫</string>
+    <string name="huban">虎斑猫</string>
+
+    <string name="introduction_buou">\u3000\u3000布偶猫，又称“布拉多尔（Ragdoll）”，发源于美国，是一种杂交品种宠物猫。是现存体型最大、体重最重的猫之一。头呈楔形，眼大而圆，被毛丰厚，四肢较长且富有肉感，尾长，身体柔软，毛色有重点色、手套色或双色等等。布偶猫较为温顺好静，对人友善。其美丽优雅又非常类似于狗的性格（Puppy cat）而又被称为"仙女猫"，"小狗猫"。特殊的外貌和温和的性格是布偶猫最大的特点之一。</string>
+    <string name="introduction_mianyin">\u3000\u3000缅因猫因原产于美国缅因州而得名，是北美自然产生的第一个长毛猫品种，约于18世纪中叶形成较稳定品种。缅因猫体格强壮，被毛厚密，长像与西伯利亚森林猫相似，在猫类中亦属大体型的品种。</string>
+    <string name="introduction_huban">\u3000\u3000虎斑猫，原产美国。黄棕色的底色，夹有纯黑色的斑纹图案，且有一圈较浅的铜色呈环状包围。虎斑猫头部圆润，两耳间距较近，颈略短，肌肉发达。眼睛大而明亮，呈圆杏核状，颜色可以接受由黄色、金色至绿色，通常有眼线。鼻子是砖红色，有鼻线。毛型短而厚、质地生硬。个性独立、活泼、机警。捕鼠能力强。</string>
+
+
 </resources>

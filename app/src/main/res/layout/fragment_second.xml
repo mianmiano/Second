@@ -1,13 +1,41 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.swufe.second.ViewPager.SecondFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.swufe.second.ViewPager.FirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@drawable/mianyin"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#393838"
+            android:text="@string/mianyin"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/label_second_fragment" />
+        android:layout_weight="0.5"
+        android:paddingTop="15dp"
+        android:textSize="18sp"
+        android:text="@string/introduction_mianyin"/>
 
-</FrameLayout>
+</LinearLayout>
+

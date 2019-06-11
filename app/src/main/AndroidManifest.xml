@@ -3,6 +3,7 @@
     package="com.swufe.second">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".VoteActivity"></activity>
+        <activity android:name=".ShakeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".HelloActivity" />
         <activity
@@ -37,15 +40,13 @@
             android:name=".RateCalActivity"
             android:theme="@style/Base.Theme.AppCompat.Light.Dialog" />
         <activity android:name=".MyList3Activity" />
-        <activity android:name=".FrameActivity">
-
-        </activity>
+        <activity android:name=".FrameActivity" />
         <activity android:name=".ViewPager.VPMainActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
